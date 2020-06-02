@@ -1,0 +1,24 @@
+{
+    "name": "twix/carbon",
+    "description": "This is a wrapper for briannesbitt/carbon which also calculates which days are French bank holidays.",
+    "keywords": ["french", "bank","holiday","holidays", "jours", "fériés"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Valentin Merlet",
+            "email": "merlet.valentin@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.1.8",
+        "nesbot/carbon": "2.*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^8.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Twix\\": "src/"
+        }
+    }
+}
