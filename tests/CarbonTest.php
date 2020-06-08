@@ -13,6 +13,8 @@ final class CarbonTest extends TestCase
     {
         $this->assertTrue(Carbon::isBankHoliday(Carbon::createFromFormat('Y-m-d', '2020-01-01')));
         $this->assertTrue(Carbon::isBankHoliday('2020-01-01'));
+        $this->assertTrue(Carbon::isBankHoliday('1811-01-01'));
+        $this->assertTrue(!Carbon::isBankHoliday('1810-01-01'));
     }
 
     public function testIsBankHolidayEasterMonday()
@@ -25,6 +27,18 @@ final class CarbonTest extends TestCase
     {
         $this->assertTrue(Carbon::isBankHoliday(Carbon::createFromFormat('Y-m-d', '2020-05-01')));
         $this->assertTrue(Carbon::isBankHoliday('2020-05-01'));
+    }
+
+    public function testIsBankHolidayEighthOfMay()
+    {
+        $this->assertTrue(Carbon::isBankHoliday(Carbon::createFromFormat('Y-m-d', '2020-05-08')));
+        $this->assertTrue(Carbon::isBankHoliday('2020-05-08'));
+    }
+
+    public function testIsBankHolidayAscensionThursday()
+    {
+        $this->assertTrue(Carbon::isBankHoliday(Carbon::createFromFormat('Y-m-d', '2020-05-21')));
+        $this->assertTrue(Carbon::isBankHoliday('2020-05-21'));
     }
 
     public function testIsNotBankHoliday()
@@ -41,5 +55,9 @@ final class CarbonTest extends TestCase
         $this->assertFalse(Carbon::isBankHoliday('2020-04-30'));
         $this->assertFalse(Carbon::isBankHoliday(Carbon::createFromFormat('Y-m-d', '2020-05-02')));
         $this->assertFalse(Carbon::isBankHoliday('2020-05-02'));
+        $this->assertFalse(Carbon::isBankHoliday(Carbon::createFromFormat('Y-m-d', '2020-05-07')));
+        $this->assertFalse(Carbon::isBankHoliday('2070-05-02'));
+        $this->assertFalse(Carbon::isBankHoliday(Carbon::createFromFormat('Y-m-d', '2020-05-09')));
+        $this->assertFalse(Carbon::isBankHoliday('2020-05-09'));
     }
 }
