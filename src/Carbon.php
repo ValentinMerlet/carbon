@@ -49,7 +49,7 @@ final class Carbon extends \Carbon\Carbon
         }
 
         // First of may // Fête du travail
-        if ($year > 1919) {
+        if ($year >= 1920) {
             $bankHolidays[] = self::getDate(sprintf('%d-05-01', $year));
         }
 
@@ -72,6 +72,44 @@ final class Carbon extends \Carbon\Carbon
             );
         }
 
+        // Whit Monday / Lundi de pentecôte
+        if ($year >= 1886) {
+            $ascensionThursday = self::getEasterDay($year)->addDays(50);
+
+            $bankHolidays[] = self::getDate(
+                sprintf(
+                    '%d-%d-%d',
+                    $year,
+                    $ascensionThursday->month,
+                    $ascensionThursday->day
+                )
+            );
+        }
+
+        // National holiday / Fête nationale
+        if ($year >= 1880) {
+            $bankHolidays[] = self::getDate(sprintf('%d-07-14', $year));
+        }
+
+        // Assumption day / Jour de l'Assomption
+        if ($year >= 1802) {
+            $bankHolidays[] = self::getDate(sprintf('%d-08-15', $year));
+        }
+
+        // Feast of all Saints // Fête de la Toussaint
+        if ($year >= 1802) {
+            $bankHolidays[] = self::getDate(sprintf('%d-11-01', $year));
+        }
+
+        // Armistice
+        if ($year >= 1918) {
+            $bankHolidays[] = self::getDate(sprintf('%d-11-11', $year));
+        }
+
+        // Christmas Day / Noël
+        if ($year >= 1802) {
+            $bankHolidays[] = self::getDate(sprintf('%d-12-25', $year));
+        }
 
         return $bankHolidays;
     }
