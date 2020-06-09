@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Tests;
 
 use PHPUnit\Framework\TestCase;
-use Twix\Carbon;
+use FRBankHolidays\Carbon;
 
 final class CarbonTest extends TestCase
 {
