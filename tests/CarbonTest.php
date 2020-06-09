@@ -112,4 +112,93 @@ final class CarbonTest extends TestCase
         $this->assertFalse(Carbon::isBankHoliday('2020-12-24'));
         $this->assertFalse(Carbon::isBankHoliday('2020-12-26'));
     }
+
+    public function testGetNewYearsDay()
+    {
+        $this->assertEquals('2020-01-01', Carbon::getNewYearsDay());
+    }
+
+    public function testGetEasterMonday()
+    {
+        $this->assertEquals('2021-04-05', Carbon::getEasterMonday(2021));
+    }
+
+    public function testGetFirstOfMay()
+    {
+        $this->assertEquals('2021-05-01', Carbon::getFirstOfMay(2021));
+    }
+
+    public function testGetEighthOfMay()
+    {
+        $this->assertEquals('2021-05-08', Carbon::getEighthOfMay(2021));
+    }
+
+    public function testGetAscensionThursday()
+    {
+        $this->assertEquals('2021-05-13', Carbon::getAscensionThursday(2021));
+        $this->assertEquals('2020-05-21', Carbon::getAscensionThursday());
+    }
+
+    public function testGetWhitMonday()
+    {
+        $this->assertEquals('2021-05-24', Carbon::getWhitMonday(2021));
+    }
+
+    public function testGetNationalDay()
+    {
+        $this->assertEquals('2021-07-14', Carbon::getNationalDay(2021));
+        $this->assertEquals('2020-07-14', Carbon::getNationalDay());
+    }
+
+    public function testGetAssumptionDay()
+    {
+        $this->assertEquals('2020-08-15', Carbon::getAssumptionDay());
+    }
+
+    public function testGetFeastOfAllSaintsDay()
+    {
+        $this->assertEquals('2020-11-01', Carbon::getFeastOfAllSaintsDay());
+    }
+
+    public function testGetArmisticeDay()
+    {
+        $this->assertEquals('2020-11-11', Carbon::getArmisticeDay());
+    }
+
+    public function testGetAllBankHolidaysForOneYear()
+    {
+        $this->assertEquals(
+            [
+                '2021-01-01',
+                '2021-04-05',
+                '2021-05-01',
+                '2021-05-08',
+                '2021-05-13',
+                '2021-05-24',
+                '2021-07-14',
+                '2021-08-15',
+                '2021-11-01',
+                '2021-11-11',
+                '2021-12-25'
+            ], array_map(function (Carbon $carbon): string {
+            return $carbon->format('Y-m-d');
+        }, Carbon::getAllBankHolidaysForOneYear(2021)));
+
+        $this->assertEquals(
+            [
+                '2020-01-01',
+                '2020-04-13',
+                '2020-05-01',
+                '2020-05-08',
+                '2020-05-21',
+                '2020-06-01',
+                '2020-07-14',
+                '2020-08-15',
+                '2020-11-01',
+                '2020-11-11',
+                '2020-12-25'
+            ], array_map(function (Carbon $carbon): string {
+            return $carbon->format('Y-m-d');
+        }, Carbon::getAllBankHolidaysForOneYear()));
+    }
 }
