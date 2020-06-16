@@ -5,7 +5,7 @@ This extends [Carbon](https://github.com/briannesbitt/Carbon) and calculates whi
 ## Installation
 
 ```
-$ composer require twix/carbon
+composer require twix/carbon
 ```
 
 ## Examples
@@ -46,11 +46,11 @@ array_map(function (Carbon $carbon): string {
 1. Clone the repo and install dependencies.
 
 ```
-composer install
+docker-compose run --rm php /usr/local/bin/composer install
 ```
 
 2. Run Tests
 
 ```
-$ ./vendor/bin/phpunit
+docker-compose run --rm php vendor/bin/phpunit
 ```
