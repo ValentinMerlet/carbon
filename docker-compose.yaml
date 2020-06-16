@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  php:
+      image: php:7.1.33-fpm
+      build:
+        context: docker/
+      volumes:
+          - './:/var/www/html'
+          - '${HOST_COMPOSER_CACHE_DIR:-~/.cache/composer}:/home/composer/.cache/composer'
+          - '${HOST_COMPOSER_HOME:-~/.config/composer}:/home/composer/.config/composer'
+
