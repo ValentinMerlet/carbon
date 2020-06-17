@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace FRBankHolidays;
+namespace Twix;
 
 final class Carbon extends \Carbon\Carbon
 {

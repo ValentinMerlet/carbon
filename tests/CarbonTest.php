@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Tests;
 
+use Twix\Carbon;
 use PHPUnit\Framework\TestCase;
-use FRBankHolidays\Carbon;
 
 final class CarbonTest extends TestCase
 {
@@ -115,7 +115,7 @@ final class CarbonTest extends TestCase
 
     public function testGetNewYearsDay()
     {
-        $this->assertEquals('2020-01-01', Carbon::getNewYearsDay());
+        $this->assertEquals('2021-01-01', Carbon::getNewYearsDay(2021));
     }
 
     public function testGetEasterMonday()
@@ -136,7 +136,6 @@ final class CarbonTest extends TestCase
     public function testGetAscensionThursday()
     {
         $this->assertEquals('2021-05-13', Carbon::getAscensionThursday(2021));
-        $this->assertEquals('2020-05-21', Carbon::getAscensionThursday());
     }
 
     public function testGetWhitMonday()
@@ -147,22 +146,21 @@ final class CarbonTest extends TestCase
     public function testGetNationalDay()
     {
         $this->assertEquals('2021-07-14', Carbon::getNationalDay(2021));
-        $this->assertEquals('2020-07-14', Carbon::getNationalDay());
     }
 
     public function testGetAssumptionDay()
     {
-        $this->assertEquals('2020-08-15', Carbon::getAssumptionDay());
+        $this->assertEquals('2021-08-15', Carbon::getAssumptionDay(2021));
     }
 
     public function testGetFeastOfAllSaintsDay()
     {
-        $this->assertEquals('2020-11-01', Carbon::getFeastOfAllSaintsDay());
+        $this->assertEquals('2021-11-01', Carbon::getFeastOfAllSaintsDay(2021));
     }
 
     public function testGetArmisticeDay()
     {
-        $this->assertEquals('2020-11-11', Carbon::getArmisticeDay());
+        $this->assertEquals('2021-11-11', Carbon::getArmisticeDay(2021));
     }
 
     public function testGetAllBankHolidaysForOneYear()
@@ -199,6 +197,6 @@ final class CarbonTest extends TestCase
                 '2020-12-25'
             ], array_map(function (Carbon $carbon): string {
             return $carbon->format('Y-m-d');
-        }, Carbon::getAllBankHolidaysForOneYear()));
+        }, Carbon::getAllBankHolidaysForOneYear(2020)));
     }
 }
