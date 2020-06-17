@@ -1,3 +1,6 @@
+[![Build Status](https://img.shields.io/travis/ValentinMerlet/carbon/master.svg?style=flat-square)](https://travis-ci.com/github/ValentinMerlet/carbon)
+[![codecov.io](https://img.shields.io/codecov/c/gh/ValentinMerlet/carbon?style=flat-square)](https://codecov.io/gh/ValentinMerlet/carbon)
+
 # Carbon Support for FR Bank Holidays
 This extends [Carbon](https://github.com/briannesbitt/Carbon) and calculates which days are French bank holidays.
 
