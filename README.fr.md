@@ -1,9 +1,9 @@
-# Carbon Support for FR Bank Holidays
-This extends [Carbon](https://github.com/briannesbitt/Carbon) and calculates which days are French bank holidays.
+# Support des jours fériés en France pour la librairie Carbon
+Cette librairie est basée sur [Carbon](https://github.com/briannesbitt/Carbon) et permet de calculer les jours fériés en France.
 
-Note: For now, it only supports Carbon v2
+Note: Pour le moment, seule la version 2 de Carbon est supportée.
 
-*Read this in other languages: [Français](README.fr.md)*
+*Lire dans une autre langue: [English](README.md)*
 
 <a name="install"></a>
 ## Installation
@@ -12,19 +12,19 @@ Note: For now, it only supports Carbon v2
 composer require twix/carbon
 ```
 
-## Examples
+## Exemples
 ```php
-// Checks if the given date is bank holiday
+// Vérifie que la date passée est un jour férié
 Carbon::isBankHoliday('2020-05-21'); // true
 Carbon::isBankHoliday(Carbon::parse('First day of 2000')); // true
 
 Carbon::getEasterMonday(2021); // '2021-04-05'
 Carbon::getWhitMonday(2021); // '2021-05-24'
 
-// Without any parameter will return date for the current year
+// Sans paramètre, retourne la date pour l'année courante
 Carbon::getAscensionThursday(); // '2020-05-21'
 
-// Get all bank holidays for one year
+// Récupérer tous les jours fériés pour une année donnée
 array_map(function (Carbon $carbon): string {
     return $carbon->format('Y-m-d');
 }, Carbon::getAllBankHolidaysForOneYear(2021));
@@ -45,15 +45,15 @@ array_map(function (Carbon $carbon): string {
 */
 ```
 
-## Contributing
+## Contribuer
 
-1. Clone the repo and install dependencies.
+1. Cloner le dépôt et installer les dépendances.
 
 ```
 docker-compose run --rm php /usr/local/bin/composer install
 ```
 
-2. Run Tests
+2. Lancer les tests
 
 ```
 docker-compose run --rm php vendor/bin/phpunit
