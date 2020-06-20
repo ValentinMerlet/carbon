@@ -1,3 +1,6 @@
+[![Build Status](https://img.shields.io/travis/ValentinMerlet/carbon/master.svg?style=flat-square)](https://travis-ci.com/github/ValentinMerlet/carbon)
+[![codecov.io](https://img.shields.io/codecov/c/gh/ValentinMerlet/carbon?style=flat-square)](https://codecov.io/gh/ValentinMerlet/carbon)
+
 # Support des jours fériés en France pour la librairie Carbon
 Cette librairie est basée sur [Carbon](https://github.com/briannesbitt/Carbon) et permet de calculer les jours fériés en France.
 
