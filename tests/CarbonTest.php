@@ -121,6 +121,7 @@ final class CarbonTest extends TestCase
     public function testGetEasterMonday()
     {
         $this->assertEquals('2021-04-05', Carbon::getEasterMonday(2021));
+        $this->assertEquals('2020-04-13', Carbon::getEasterMonday());
     }
 
     public function testGetFirstOfMay()
@@ -136,11 +137,13 @@ final class CarbonTest extends TestCase
     public function testGetAscensionThursday()
     {
         $this->assertEquals('2021-05-13', Carbon::getAscensionThursday(2021));
+        $this->assertEquals('2020-05-21', Carbon::getAscensionThursday());
     }
 
     public function testGetWhitMonday()
     {
         $this->assertEquals('2021-05-24', Carbon::getWhitMonday(2021));
+        $this->assertEquals('2020-06-01', Carbon::getWhitMonday());
     }
 
     public function testGetNationalDay()
@@ -197,6 +200,6 @@ final class CarbonTest extends TestCase
                 '2020-12-25'
             ], array_map(function (Carbon $carbon): string {
             return $carbon->format('Y-m-d');
-        }, Carbon::getAllBankHolidaysForOneYear(2020)));
+        }, Carbon::getAllBankHolidaysForOneYear()));
     }
 }
